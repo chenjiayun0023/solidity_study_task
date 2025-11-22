@@ -2,6 +2,9 @@ const { ethers, deployments } = require("hardhat")
 const { expect } = require("chai")
 
 describe("Test auction", async function () {
+
+    // 由于每个it都是异步的，所以每个测试用例是并行执行的，合约的部署独立不相互影响，不使用全局变量，防止不同测试用例之间数据冲突
+
     let count = 0;
     async function deploy() {
         count++;
