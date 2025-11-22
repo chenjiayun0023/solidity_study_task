@@ -1,0 +1,767 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for contracts\NftAuction.sol</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../prettify.css" />
+    <link rel="stylesheet" href="../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../index.html">all files</a> / <a href="index.html">contracts/</a> NftAuction.sol
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>38/38</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>30/30</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>7/7</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">100% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>49/49</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line high'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180
+181
+182
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231
+232
+233
+234
+235</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">16×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">24×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">14×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-yes">13×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">3×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-yes">11×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7×</span>
+<span class="cline-any cline-yes">6×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4×</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12×</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.0;
+&nbsp;
+import "@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
+import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol";
+import {
+    AggregatorV3Interface
+} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
+import "hardhat/console.sol";
+&nbsp;
+contract NftAuction is Initializable, IERC721Receiver {
+    // 结构体
+    struct Auction {
+        // 卖家
+        address seller;
+        // 拍卖持续时间
+        uint256 duration;
+        // 起始价格
+        uint256 startPrice; // 存储USD价值，而不是具体币种金额
+        // 开始时间
+        uint256 startTime;
+        // 是否结束
+        bool ended;
+        // 最高出价者
+        address highestBidder;
+        // 最高价格
+        uint256 highestBid;
+        // NFT合约地址
+        address nftContract;
+        // NFT ID
+        uint256 tokenId;
+        // 参与竞价的资产类型 0x 地址表示eth，其他地址表示erc20
+        // 0x0000000000000000000000000000000000000000 表示eth
+        address tokenAddress;
+    }
+&nbsp;
+    // 状态变量
+    mapping(uint256 =&gt; Auction) public auctions;
+    // 下一个拍卖ID
+    uint256 public nextAuctionId;
+    // 管理员地址
+    address public admin;
+    mapping(address =&gt; AggregatorV3Interface) public priceFeeds;
+&nbsp;
+    function initialize() public initializer {
+        admin = msg.sender;
+    }
+&nbsp;
+    // ETH / USD 0x694AA1769357215DE4FAC081bf1f309aDC325306  309016484700  一个eth=3090.16484700usd
+    // USDC / USD 0xA2F78ab2355fe2f984D808B5CeE7FD0A93D5270E  99978088  一个usdc=0.99978088usd
+    function setPriceFeed(address tokenAddress, address _priceFeed) public {
+        priceFeeds[tokenAddress] = AggregatorV3Interface(_priceFeed);
+    }
+&nbsp;
+    function getChainlinkDataFeedLatestAnswer(
+        address tokenAddress
+    ) public view returns (int256) {
+        AggregatorV3Interface priceFeed = priceFeeds[tokenAddress];
+        // prettier-ignore
+        (
+      /* uint80 roundId */
+      ,
+      int256 answer,
+      /*uint256 startedAt*/
+      ,
+      /*uint256 updatedAt*/
+      ,
+      /*uint80 answeredInRound*/
+    ) = priceFeed.latestRoundData();
+        return answer;
+    }
+&nbsp;
+    // 创建拍卖
+    function createAuction(
+        uint256 _duration,
+        uint256 _startPrice,
+        address _nftAddress,
+        uint256 _tokenId
+    ) public {
+        // 只有管理员可以创建拍卖
+        require(msg.sender == admin, "Only admin can create auctions");
+        // 检查参数
+        require(_duration &gt;= 10, "Duration must be greater than 10s"); //uint256 的时间单位默认是秒！
+        require(_startPrice &gt; 0, "Start price must be greater than 0"); //uint256 表示的价格默认单位是 wei
+&nbsp;
+        console.log("msg.sender:", msg.sender); //部署者
+        console.log("address(this):", address(this)); //代理合约地址
+        console.log("admin:", admin); //部署者
+        // 转移NFT到合约   // 第二层调用：代理合约 → NFT合约，所以发送者是代理合约地址
+        IERC721(_nftAddress).safeTransferFrom(
+            msg.sender,
+            address(this),
+            _tokenId
+        );
+&nbsp;
+        auctions[nextAuctionId] = Auction({
+            seller: msg.sender,
+            duration: _duration,
+            startPrice: _startPrice,
+            startTime: block.timestamp,
+            ended: false,
+            highestBidder: address(0),
+            highestBid: 0,
+            nftContract: _nftAddress,
+            tokenId: _tokenId,
+            tokenAddress: address(0)
+        });
+&nbsp;
+        nextAuctionId++;
+    }
+&nbsp;
+    // 买家参与买单
+    // TODO: ERC20 也能参加
+    function placeBid(
+        uint256 _auctionID,
+        uint256 amount,
+        address _tokenAddress
+    ) external payable {
+        Auction storage auction = auctions[_auctionID];
+&nbsp;
+        console.log("ended:", auction.ended);
+        console.log("startTime:", auction.startTime);
+        console.log("duration:", auction.duration);
+        console.log("block.timestamp:", block.timestamp);
+&nbsp;
+        // 判断当前拍卖是否结束
+        require(
+            !auction.ended &amp;&amp;
+                auction.startTime + auction.duration &gt; block.timestamp,
+            "Auction has ended"
+        );
+        // 判断出价是否大于当前最高出价
+        uint payValue;
+        if (_tokenAddress != address(0)) {
+            // 处理 ERC20 - 确保没有误发送ETH
+            require(msg.value == 0, "ETH not accepted for ERC20 bids");
+            payValue =
+                amount *
+                uint(getChainlinkDataFeedLatestAnswer(_tokenAddress));
+        } else {
+            // 处理 ETH
+            amount = msg.value;
+            payValue =
+                amount *
+                uint(getChainlinkDataFeedLatestAnswer(address(0)));
+        }
+&nbsp;
+        uint highestBidValue = auction.highestBid *
+            uint(getChainlinkDataFeedLatestAnswer(auction.tokenAddress));
+&nbsp;
+        require(
+            payValue &gt;= auction.startPrice &amp;&amp; payValue &gt; highestBidValue,
+            "Bid must be higher than the current highest bid"
+        );
+&nbsp;
+        // 收款，转移 ERC20 到合约
+        // erc20 的transferFrom方法是给spender去操作的，不是from，所以需要from先approve授权spender
+        if (_tokenAddress != address(0)) {
+            IERC20(_tokenAddress).transferFrom(
+                msg.sender,
+                address(this),
+                amount
+            );
+        }
+&nbsp;
+        // 退还前最高价
+        if (auction.highestBid &gt; 0) {
+            if (auction.tokenAddress == address(0)) {
+                payable(auction.highestBidder).transfer(auction.highestBid);
+            } else {
+                // 退回之前的ERC20
+                IERC20(auction.tokenAddress).transfer(
+                    auction.highestBidder,
+                    auction.highestBid
+                );
+            }
+        }
+&nbsp;
+        // 更新最高出价者
+        auction.tokenAddress = _tokenAddress;
+        auction.highestBid = amount;
+        auction.highestBidder = msg.sender;
+    }
+&nbsp;
+    // 结束拍卖
+    function endAuction(uint256 _auctionID) external {
+        Auction storage auction = auctions[_auctionID];
+&nbsp;
+        console.log(
+            "endAuction",
+            auction.startTime,
+            auction.duration,
+            block.timestamp
+        );
+        // 判断当前拍卖是否结束
+        require(!auction.ended, "Auction has ended");
+        require((auction.startTime + auction.duration) &lt;= block.timestamp, "Auction has not ended");
+&nbsp;
+        if (auction.highestBidder != address(0)) {
+            // 有人竞价，转移NFT到最高出价者
+            IERC721(auction.nftContract).safeTransferFrom(
+                address(this),
+                auction.highestBidder,
+                auction.tokenId
+            );
+            // 把钱转给卖家
+            if (auction.tokenAddress == address(0)) {
+                payable(auction.seller).transfer(auction.highestBid);
+            } else {
+                IERC20(auction.tokenAddress).transfer(auction.seller, auction.highestBid);
+            }
+&nbsp;
+        } else {
+            // 无人竞价，退回NFT给卖家
+            IERC721(auction.nftContract).safeTransferFrom(
+                address(this),
+                auction.seller,
+                auction.tokenId
+            );
+        }
+        auction.ended = true;
+    }
+&nbsp;
+    function onERC721Received(
+        address operator,
+        address from,
+        uint256 tokenId,
+        bytes calldata data
+    ) external pure override returns (bytes4) {
+        return this.onERC721Received.selector;
+    }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Nov 22 2025 15:42:57 GMT+0800 (中国标准时间)
+</div>
+</div>
+<script src="../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../sorter.js"></script>
+</body>
+</html>
