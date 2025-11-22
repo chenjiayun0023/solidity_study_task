@@ -124,7 +124,3 @@ async function main() {
 
 }
 
-// npx hardhat node --no-deploy
-//执行测试： npx hardhat test test/auction.js --network localhost
-// npx hardhat test test/auction.js --network sepolia
-
